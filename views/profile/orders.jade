@@ -1,0 +1,26 @@
+extends info
+
+block details
+
+    h3 Orders History
+    .table-responsive
+        table.table.table-condensed
+            thead
+                tr
+                    td #
+                    td Date
+                    td Status
+                    td Total
+                    td
+            tbody
+                each order in orders
+                    tr
+                        td= order.OrderID
+                        td= order.OrderDate
+                        td= order.Status
+                        td= 'Tk' + order.Total
+                        td
+                            form(action='/usr/' + customer.Username + '/orders/' + order.OrderID, method='GET')
+                                button.btn.btn-default.order-btn(type='submit')
+                                    i.fa.fa-eye
+                                    = ' View'

@@ -1,0 +1,28 @@
+extends admin
+
+block details
+    .table-responsive
+        table.table.table-condensed
+            thead
+                tr
+                    td #
+                    td Date
+                    td Status
+                    td Total
+                    td
+            tbody
+                each order in orders
+                    tr
+                        td= order.OrderID
+                        td= order.OrderDate
+                        td= order.Status
+                        td= 'Tk' + order.Total
+                        td
+                            form.dev-form(action='/admin/orders/' + order.OrderID, method='GET')
+                                button.order-btn.btn.btn-default(type='submit')
+                                    i.fa.fa-eye
+                                    = ' View'
+                            form.dev-form(action='/admin/orders/' + order.OrderID + '/update', method='GET')
+                                button.order-btn.btn.btn-default(type='submit')
+                                    i.fa.fa-list
+                                    = ' Update status'

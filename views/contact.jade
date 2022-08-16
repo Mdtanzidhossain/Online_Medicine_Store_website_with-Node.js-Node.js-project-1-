@@ -1,0 +1,58 @@
+extends layout
+
+block content
+    
+    #contact-page.container
+        .bg
+            .row
+                .col-sm-12
+                    h2.title.text-center
+                        | Contact
+                        strong= ' Us'
+            .row
+                .col-sm-8
+                    .contact-form
+                        h2.title.text-center Get In Touch
+                        .status.alert.alert-success(style='display: none')
+                        form#main-contact-form.contact-form.row(action='/contact-us', method='POST')
+                            if customer
+                                .form-group.col-md-6
+                                    input.form-control(type='text', name='fullName', value=customer.FullName, required='required', placeholder='Name', disabled)
+                                .form-group.col-md-6
+                                    input.form-control(type='email', name='email', value= customer.Email, required='required', placeholder='Email', disabled)
+                            else
+                                .form-group.col-md-6
+                                    input.form-control(type='text', name='fullName', required='required', placeholder='Name')
+                                .form-group.col-md-6
+                                    input.form-control(type='email', name='email', required='required', placeholder='Email')
+                            .form-group.col-md-12
+                                input.form-control(type='text', name='subject', required='required', placeholder='Subject')
+                            .form-group.col-md-12
+                                textarea#message.form-control(name='contactMessage', required='required', rows='8', placeholder='Your Message Here')
+                            .form-group.col-md-12
+                                input.btn.btn-primary.pull-right(type='submit', name='submit', value='Submit')
+                .col-sm-4
+                    .contact-info
+                        h2.title.text-center Contact Info
+                        address
+                            p CliniCare .
+                            p Mirpur DOHS 
+                            p Tarnamite Lane, Dhaka 
+                            p Mobile: 12345678910   
+                            p Fax:  111-222-2222
+                            p Email: rrpx@gmail.com
+                        .social-networks
+                            h2.title.text-center Social Networking
+                            ul
+                                li
+                                    a(href='#')
+                                        i.fa.fa-facebook
+                                li
+                                    a(href='#')
+                                        i.fa.fa-twitter
+                                li
+                                    a(href='#')
+                                        i.fa.fa-instagram
+                                li
+                                    a(href='#')
+                                        i.fa.fa-youtube
